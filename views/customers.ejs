@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customers</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+    <header>
+        <h1>All Customers</h1>
+    </header>
+    <div class="container">
+        <ul>
+            <% customers.forEach(customer => { %>
+                <li><a href="/customer/<%= customer.id %>"><%= customer.name %> - $<%= customer.balance %></a></li>
+            <% }) %>
+        </ul>
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>
