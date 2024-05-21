@@ -41,14 +41,22 @@ app.get('/customer/:id', async (req, res) => {
 });
 
 app.post('/transfer', async (req, res) => {
-    const { fromCustomerId, toCustomerId, amount } = req.body;
+    const { fromCustomerName, toCustomerName, amount } = req.body;
 
     try {
         await pool.query('BEGIN');
 
-        const fromCustomer = await pool.query('SELECT balance FROM customers WHERE id = $1', [fromCustomerId]);
+        // Get the IDs and balances of the customers based on their names
+        const fromCustomer = await pool.query('SELECT id, balance FROM customers WHERE name = $1', [fromCustomerName]);
+        const toCustomer = await pool.query('SELECT id FROM customers WHERE name = $1', [toCustomerName]);
 
-        if (fromCustomer.rows[0].balance < amount) {
+       
+
+        const fromCustomerId = fromCustomer.rows[0].id;
+        const toCustomerId = toCustomer.rows[0].id;
+        const fromCustomerBalance = fromCustomer.balance;
+
+        if (fromCustomerBalance < amount) {
             throw new Error('Insufficient balance');
         }
 
@@ -62,9 +70,10 @@ app.post('/transfer', async (req, res) => {
     } catch (err) {
         await pool.query('ROLLBACK');
         console.error(err);
-        res.send('Transfer failed');
+        res.send('Transfer failed: ' + err.message);
     }
 });
+
 
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);

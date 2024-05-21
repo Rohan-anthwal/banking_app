@@ -20,7 +20,7 @@ header h1 {
   margin: 0;
 }
 
-/* Container styling */
+
 .container {
   max-width: 800px;
   margin: 20px auto;
@@ -30,7 +30,7 @@ header h1 {
   box-shadow: 0 0 20px rgba(0,0,0,0.05);
 }
 
-/* Link styling */
+
 a {
   color: #007bff;
   text-decoration: none;
@@ -41,7 +41,6 @@ a:hover {
   text-decoration: underline;
 }
 
-/* List styling */
 ul {
   list-style-type: none;
   padding: 0;
@@ -59,7 +58,6 @@ li a {
   display: block;
 }
 
-/* Form styling */
 form {
   display: flex;
   flex-direction: column;
@@ -93,7 +91,6 @@ form button:hover {
   background-color: #0056b3;
 }
 
-/* Responsive styling */
 @media (max-width: 768px) {
   .container {
       padding: 10px;
