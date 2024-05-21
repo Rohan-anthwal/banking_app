@@ -1,10 +1,10 @@
 {
   "name": "basic-banking-app",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
@@ -13,5 +13,6 @@
     "express": "^4.19.2",
     "nodemon": "^3.1.0",
     "pg": "^8.11.5"
-  }
+  },
+  "description": ""
 }
