@@ -1,4 +1,4 @@
-/* General styles */
+
 body {
   font-family: 'Arial', sans-serif;
   margin: 0;
@@ -7,7 +7,6 @@ body {
   color: #343a40;
 }
 
-/* Header styling */
 header {
   background-color: #007bff;
   color: #fff;
